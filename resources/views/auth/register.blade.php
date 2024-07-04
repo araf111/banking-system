@@ -66,6 +66,7 @@
 
                             <div class="col-md-6">
                                 <select id="account_type" class="form-control @error('account_type') is-invalid @enderror" name="account_type" required>
+                                    <option value="">Select Type</option>
                                     <option value="Individual">Individual</option>
                                     <option value="Business">Business</option>
                                 </select>

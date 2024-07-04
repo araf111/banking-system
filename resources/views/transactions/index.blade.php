@@ -19,14 +19,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($transactions as $transaction)
-                            <tr>
-                                <td>{{ $transaction->id }}</td>
-                                <td>{{ ucfirst($transaction->type) }}</td>
-                                <td>${{ $transaction->amount }}</td>
-                                <td>{{ $transaction->created_at->format('Y-m-d H:i') }}</td>
-                            </tr>
-                        @endforeach
+                        @if($transactions->count() > 0)
+                            @foreach($transactions as $transaction)
+                                <tr>
+                                    <td>{{ $transaction->id }}</td>
+                                    <td>{{ ucfirst($transaction->type) }}</td>
+                                    <td>${{ $transaction->amount }}</td>
+                                    <td>{{ $transaction->created_at->format('Y-m-d H:i') }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>

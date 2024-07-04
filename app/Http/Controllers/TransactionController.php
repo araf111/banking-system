@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $transactions = Transaction::where('user_id', Auth::id())->get();
@@ -95,6 +106,7 @@ class TransactionController extends Controller
             ->whereMonth('created_at', $currentMonth)
             ->sum('amount');
 
+
         if ($totalMonthlyWithdrawal + $amount <= 5000) {
             return 0;
         }
@@ -110,7 +122,7 @@ class TransactionController extends Controller
             ->where('type', 'withdrawal')
             ->sum('amount');
 
-        if ($totalWithdrawn + $amount > 50000) {
+        if ($totalWithdrawn + $amount >= 50000) {
             $fee = $amount * 0.015 / 100;
         }
 

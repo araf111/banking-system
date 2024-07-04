@@ -36,4 +36,9 @@ class ConfirmPasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
+    // protected function redirectTo()
+    // {
+    //     return route('transactions');
+    // }
 }
