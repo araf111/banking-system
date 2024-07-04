@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::routes(function () {
+    Route::get('/', [TransactionController::class, 'index'])->name('transactions');
+    Route::get('/deposit', [TransactionController::class, 'deposits'])->name('deposits');
+    Route::post('/deposit', [TransactionController::class, 'deposit'])->name('deposit');
+    Route::get('/withdrawal', [TransactionController::class, 'withdrawals'])->name('withdrawals');
+    Route::post('/withdrawal', [TransactionController::class, 'withdraw'])->name('withdraw');
+
+    Route::get('/deposit-form', function () {
+        return view('transactions.deposit_form');
+    })->name('deposit-form');
+
+    Route::get('/withdraw-form', function () {
+        return view('transactions.withdraw_form');
+    })->name('withdraw-form');
+// });
