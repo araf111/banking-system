@@ -7,7 +7,7 @@
             <div class="card-header">{{ __('Transactions') }}</div>
 
             <div class="card-body">
-                <h4>Current Balance: ${{ Auth::user()->balance }}</h4>
+                <h4>Account Type: {{ Auth::user()->account_type }}, Current Balance: ${{ Auth::user()->balance }}</h4>
 
                 <table class="table">
                     <thead>
