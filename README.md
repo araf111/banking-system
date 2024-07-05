@@ -1,5 +1,3 @@
-<h2>Document instruction</h2>
-
 ## Server Requirements
 
 - PHP ^8.1
@@ -16,8 +14,15 @@
 - php artisan config:cache
 - php artisan migrate:fresh --seed
 
-
 <h3>User login credentials:</h3>
-- Email: admin@ut.com
-- Password: password
-- Steps to follow:
+<h5>Loing for Individual Account Type</h5>
+
+- Email: john.doe@example.com
+- Password: password123
+
+<h5>Loing for Business Account Type</h5>
+
+- Email: jane.smith@example.com
+- Password: password123
+
+# or you can create new account with registration
