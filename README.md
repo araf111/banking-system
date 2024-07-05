@@ -9,6 +9,7 @@
 <h3>Run following commands:</h3>
 
 - run cp .env.example .env.
+- npm install
 - composer install
 - php artisan key:generate
 - php artisan config:cache
@@ -27,6 +28,6 @@
 
 <h3>or you can create new account with registration</h3>
 
-<h3>After login You can see bellow screen and then you can any do operation from here</h3>
+<h5>After login You can see bellow screen and then you can any do operation from here.</h5>
 
 <h1 align="center"><img src="public/images/bms.png"></h1>
