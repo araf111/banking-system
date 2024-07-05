@@ -25,4 +25,8 @@
 - Email: jane.smith@example.com
 - Password: password123
 
-# or you can create new account with registration
+<h3>or you can create new account with registration</h3>
+
+<h3>After login You can see bellow screen and then you can any do operation from here</h3>
+
+<h1 align="center"><img src="public/images/bms.png"></h1>
