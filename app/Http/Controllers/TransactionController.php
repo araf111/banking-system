@@ -19,11 +19,23 @@ class TransactionController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function index()
     {
         $transactions = Transaction::where('user_id', Auth::id())->get();
         return view('transactions.index', compact('transactions'));
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function deposits()
     {
@@ -31,11 +43,24 @@ class TransactionController extends Controller
         return view('transactions.deposits', compact('deposits'));
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function withdrawals()
     {
         $withdrawals = Transaction::where('user_id', Auth::id())->where('type', 'withdrawal')->get();
         return view('transactions.withdrawals', compact('withdrawals'));
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function deposit(Request $request)
     {
@@ -55,6 +80,13 @@ class TransactionController extends Controller
 
         return redirect()->route('deposits');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     public function withdraw(Request $request)
     {
@@ -88,6 +120,13 @@ class TransactionController extends Controller
         return redirect()->route('withdrawals');
     }
 
+    /**
+     * Implement logic here for individual user  withdrawal conditions
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
     private function calculateIndividualFee($amount)
     {
         // Implement logic for free withdrawal conditions
@@ -113,6 +152,13 @@ class TransactionController extends Controller
 
         return $fee;
     }
+
+    /**
+     * Implement logic here for Business user  withdrawal conditions
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
     private function calculateBusinessFee($user, $amount)
     {
