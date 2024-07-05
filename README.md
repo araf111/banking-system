@@ -14,6 +14,8 @@
 - php artisan key:generate
 - php artisan config:cache
 - php artisan migrate:fresh --seed
+- npm run dev
+- php artisan serve
 
 <h3>User login credentials:</h3>
 <h5>Loing for Individual Account Type</h5>
